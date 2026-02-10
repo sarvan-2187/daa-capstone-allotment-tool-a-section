@@ -55,7 +55,7 @@ export default function Home() {
             Problem Allotment
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-base text-slate-600">
-            This Form is for students of CSE B Section only.<br/>
+            This Form is for students of CSE A Section only.<br/>
             Enter your roll number to receive the assigned problem instantly.<br/>
             This allocation is final.
           </p>
@@ -77,7 +77,7 @@ export default function Home() {
           <label className="mt-6 block">
             <span className="text-sm font-medium text-slate-700">Roll number</span>
             <input
-              placeholder="E.g. CH.SC.U4CSE241XX"
+              placeholder="E.g. CH.SC.U4CSE240XX"
               className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-base text-slate-900 shadow-sm outline-none transition focus:border-[var(--accent)] focus:ring-2 focus:ring-[rgba(31,75,153,0.2)]"
               value={roll}
               onChange={(e) => setRoll(e.target.value)}
