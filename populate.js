@@ -1,7 +1,7 @@
 // Node 18+ has global fetch
 
 const BASE_URL =
-  "https://humble-space-lamp-jj7rpxv465wjcq5rp-3000.app.github.dev";
+  "https://bug-free-winner-v6rpjx9g4pr7hxrgj-3000.app.github.dev";
 
 async function allocateStudent(roll) {
   try {
@@ -40,7 +40,7 @@ async function run() {
 
   for (let i = 1; i <= 60; i++) {
     const padded = String(i).padStart(2, "0");
-    rolls.push(`CH.SC.U4CSE241${padded}`);
+    rolls.push(`CH.SC.U4CSE240${padded}`);
   }
 
   const results = await Promise.all(rolls.map(allocateStudent));

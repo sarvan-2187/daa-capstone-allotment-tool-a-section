@@ -9,7 +9,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "DAA B Section",
+  title: "DAA A Section",
   description: "Tool for allocating problems to students in the DAA Capstone project",
 };
 
