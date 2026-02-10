@@ -40,7 +40,7 @@ export async function POST(req: Request) {
       return NextResponse.json(
         {
           error:
-            "Roll number format is incorrect. Expected format: CH.SC.U4CSE241XX.",
+            "Roll number format is incorrect. Expected format: CH.SC.U4CSE240XX.",
         },
         { status: 400 }
       );
