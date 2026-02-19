@@ -2,6 +2,34 @@
 import { useEffect, useMemo, useState } from "react";
 import * as XLSX from "xlsx";
 
+const PROBLEM_STATEMENTS: Record<number, string> = {
+  1: "Let’s go home!",
+  2: "Let’s go home in EV!",
+  3: "What does future holds?",
+  4: "It’s all magic!",
+  5: "Pack up!",
+  6: "Don’t forget to pack up!",
+  7: "Invitation: the old fashion way!",
+  8: "Invitation: hurry up!",
+  9: "Robots, Go!",
+  10: "Keep it cool!",
+  11: "There is no signal!",
+  12: "Whom to send?",
+  13: "To infinity, and beyond!",
+  14: "ARM is great!",
+  15: "Get vaccinated!",
+  16: "Who will pay electricity bill?",
+  17: "No more traffic!",
+  18: "The hustle culture.",
+  19: "The real civil engineer!",
+  20: "Stay hydrated!",
+};
+
+const getProblemStatement = (problemNumber: number | string) => {
+  const parsedNumber = Number(problemNumber);
+  return PROBLEM_STATEMENTS[parsedNumber] || "Problem statement not mapped";
+};
+
 export default function AdminPage() {
   const [data, setData] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -14,6 +42,7 @@ export default function AdminPage() {
     const rows = data.map((row) => ({
       "Roll Number": row.roll_number,
       "Problem Number": row.problem_number,
+      "Problem Statement": getProblemStatement(row.problem_number),
     }));
 
     const worksheet = XLSX.utils.json_to_sheet(rows);
@@ -85,19 +114,20 @@ export default function AdminPage() {
                 <tr>
                   <th className="px-5 py-3 font-semibold">Roll number</th>
                   <th className="px-5 py-3 font-semibold">Problem</th>
+                  <th className="px-5 py-3 font-semibold">Problem statement</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
                 {isLoading && (
                   <tr>
-                    <td className="px-5 py-6 text-slate-500" colSpan={2}>
+                    <td className="px-5 py-6 text-slate-500" colSpan={3}>
                       Loading allocations...
                     </td>
                   </tr>
                 )}
                 {!isLoading && data.length === 0 && (
                   <tr>
-                    <td className="px-5 py-6 text-slate-500" colSpan={2}>
+                    <td className="px-5 py-6 text-slate-500" colSpan={3}>
                       No allocations recorded yet.
                     </td>
                   </tr>
@@ -112,6 +142,9 @@ export default function AdminPage() {
                         <span className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700">
                           {row.problem_number}
                         </span>
+                      </td>
+                      <td className="px-5 py-4 text-slate-700">
+                        {getProblemStatement(row.problem_number)}
                       </td>
                     </tr>
                   ))}
